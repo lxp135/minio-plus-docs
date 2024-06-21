@@ -1,5 +1,323 @@
 # 快速开始
 
-## 使用 minio-plus-all-spring-boot-starter
+[[TOC]]
+
+## 背景知识
+minio-plus 是一个 Java 语言的 SDK ，通过 jar 包的形式发布到 Maven 中央仓库。
+
+我们假设您已经具备已下知识：
+* 熟练使用 Java 相关 IDE ，具备 Java 开发环境
+* 熟练使用 Spring Boot 框架
+* 熟悉 Maven，或者是 Gradle 也行
+
+## 初始化工程
+
+创建一个空的 Spring Boot 工程。
+
+> [!TIP]
+> 我们可以利用 [Spring Initializer](https://start.spring.io/) 来快速初始化一个 Spring Boot 工程。
+
+## 添加依赖
+
+引入 MinIO Plus Starter 依赖
+
+### Spring Boot 2
+
+```xml
+        <dependency>
+            <groupId>me.liuxp</groupId>
+            <artifactId>minio-plus-all-spring-boot-starter</artifactId>
+            <version>0.1.2</version>
+        </dependency>
+```
+
+### Spring Boot 3
+
+暂未发布，后续支持
+
+## 配置参数
+
+在`application.yml`配置文件中，添加 MinIO Plus 相关配置项：
+
+```yaml
+##################################################################
+### MinIO Plus Config
+##################################################################
+minioplus:
+    # MinIO 部署地址
+    backend: http://localhost:9000
+    # 浏览器访问地址，文件、图片上传下载访问地址代理，如果minio被nginx代理，需要配置这个参数为代理后的前端访问地址
+    browser-url: http://localhost:9000
+    # 授权key
+    key: minioadmin
+    # 密钥
+    secret: minioadmin
+    # 上传预签名URL有效期，单位为分钟，可选参数，默认值为60分钟
+    upload-expiry: 120
+    # 下载和预览预签名URL有效期，单位为分钟，可选参数，默认值为60分钟
+    download-expiry: 20
+    # 可选参数，分块配置
+    part:
+        # 可选参数，是否开启分块能力。默认为true
+        enable: true
+        # 可选参数，分块大小，配置单位为byte，默认为5242880
+        size: 5242880
+        # 可选参数，分块上传时建议并发数，默认为3
+        iis: 2
+    # 可选参数，缩略图配置
+    thumbnail:
+        # 可选参数，是否开启缩略图。默认为true
+        enable: true
+        # 可选参数，缩略图尺寸，默认为300
+        size: 300
+```
+
+## 文件元数据读写实现
+
+实现 MetadataRepository 接口类，举一个例子：
+
+```java
+/**
+ * 文件元数据接口实现类
+ *
+ * @author contact@liuxp.me
+ * @since 2024/05/22
+ */
+@Slf4j
+@Service
+public class MetadataRepositoryImpl extends ServiceImpl<FileMetadataInfoMapper, FileMetadataInfoEntity> implements MetadataRepository {
+
+    @Override
+    public List<FileMetadataInfoVo> list(FileMetadataInfoDTO searchDTO) {
+
+        // 组装查询参数
+        QueryWrapper<FileMetadataInfoEntity> queryWrapper = buildParams(searchDTO);
+
+        List<FileMetadataInfoEntity> fileMetadataInfoEntityList = super.list(queryWrapper);
+
+        List<FileMetadataInfoVo> fileMetadataInfoVoList = new ArrayList<>();
+
+        for (FileMetadataInfoEntity fileMetadataInfoEntity : fileMetadataInfoEntityList) {
+            FileMetadataInfoVo fileMetadataInfoVo = new FileMetadataInfoVo();
+            BeanUtils.copyProperties(fileMetadataInfoEntity, fileMetadataInfoVo);
+            fileMetadataInfoVoList.add(fileMetadataInfoVo);
+        }
+
+        return fileMetadataInfoVoList;
+    }
+
+    @Override
+    public FileMetadataInfoVo one(FileMetadataInfoDTO searchDTO) {
+
+        // 组装查询参数
+        QueryWrapper<FileMetadataInfoEntity> queryWrapper = buildParams(searchDTO);
+        queryWrapper.last("limit 1");
+
+        FileMetadataInfoEntity fileMetadataInfoEntity = super.getOne(queryWrapper);
+
+        FileMetadataInfoVo fileMetadataInfoVo = new FileMetadataInfoVo();
+
+        if(null!=fileMetadataInfoEntity){
+            BeanUtils.copyProperties(fileMetadataInfoEntity, fileMetadataInfoVo);
+        }
+
+        return fileMetadataInfoVo;
+    }
+
+    @Override
+    public FileMetadataInfoVo save(FileMetadataInfoSaveDTO saveDTO) {
+
+        FileMetadataInfoEntity fileMetadataInfoEntity = new FileMetadataInfoEntity();
+        BeanUtils.copyProperties(saveDTO, fileMetadataInfoEntity);
+        fileMetadataInfoEntity.setCreateTime(new Date());
+        fileMetadataInfoEntity.setUpdateTime(new Date());
+
+        boolean result = super.save(fileMetadataInfoEntity);
+
+        FileMetadataInfoVo fileMetadataInfoVo = new FileMetadataInfoVo();
+        if(result){
+            BeanUtils.copyProperties(fileMetadataInfoEntity, fileMetadataInfoVo);
+        }
+
+        return fileMetadataInfoVo;
+    }
+
+    @Override
+    public FileMetadataInfoVo update(FileMetadataInfoUpdateDTO updateDTO) {
+
+        FileMetadataInfoEntity fileMetadataInfoEntity = new FileMetadataInfoEntity();
+        BeanUtils.copyProperties(updateDTO, fileMetadataInfoEntity);
+        fileMetadataInfoEntity.setUpdateTime(new Date());
+        boolean result = super.updateById(fileMetadataInfoEntity);
+
+        FileMetadataInfoVo fileMetadataInfoVo = new FileMetadataInfoVo();
+        if(result){
+            BeanUtils.copyProperties(fileMetadataInfoEntity, fileMetadataInfoVo);
+        }
+
+        return fileMetadataInfoVo;
+    }
+
+    @Override
+    public Boolean remove(Long id) {
+        return super.removeById(id);
+    }
+
+    private QueryWrapper<FileMetadataInfoEntity> buildParams(FileMetadataInfoDTO searchDTO){
+        // 组装查询参数
+        QueryWrapper<FileMetadataInfoEntity> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq(CharSequenceUtil.isNotBlank(searchDTO.getFileKey()),"file_key",searchDTO.getFileKey());
+        queryWrapper.eq(CharSequenceUtil.isNotBlank(searchDTO.getFileMd5()),"file_md5",searchDTO.getFileMd5());
+        queryWrapper.eq(CharSequenceUtil.isNotBlank(searchDTO.getBucket()),"bucket",searchDTO.getBucket());
+        queryWrapper.eq(null!=searchDTO.getIsPrivate(),"is_private",searchDTO.getIsPrivate());
+        queryWrapper.eq(CharSequenceUtil.isNotBlank(searchDTO.getCreateUser()),"create_user",searchDTO.getCreateUser());
+
+        return queryWrapper;
+    }
+}
+```
+
+## Knife4j 和 Swagger （可选）
+
+如果项目上使用 Swagger 或者 Knife4j。在配置时，注意添加org.liuxp.minioplus.extension.controller路径。
+
+```java{15}
+/**
+ * 接口文档配置
+ * @author : contact@liuxp.me
+ * @since 2024/6/18
+ */
+@Configuration
+@EnableSwagger2WebMvc
+public class SwaggerConfig {
+
+    @Bean(value = "dockerBean")
+    public Docket dockerBean() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(apiInfo())
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("org.liuxp.minioplus.extension.controller"))
+                .paths(PathSelectors.any())
+                .build();
+    }
+
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder()
+                .title("MinIO Plus API 文档")
+                .contact(new Contact("刘小平", "https://liuxp.me", "contact@liuxp.me"))
+                .version("1.0.0")
+                .description("MinIO-Plus 是一个 MinIO 的二次封装与增强工具，在 MinIO 的基础上只做增强，不侵入 MinIO 代码，只为简化开发、提高效率而生。成为 MinIO 在项目中落地的润滑剂。")
+                .license("The Apache License, Version 2.0")
+                .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
+                .build();
+    }
+}
+
+```
+
+## 登录用户信息写入
+
+MinIO Plus 提供的文件权限功能，依赖于用户登录信息。
+
+需要在请求拦截器中调用UserHolder.set(userId)方法插入用户编号，游客访问时可以放入空字符串。
+
+```java
+/**
+ * 登录用户拦截器
+ *
+ * @author contact@liuxp.me
+ * @since  2024/06/11
+ */
+@Slf4j
+@Component
+public class LoginUserInterceptor implements HandlerInterceptor {
+
+    /**
+     * 处理登录用户信息
+     *
+     * @param request  请求
+     * @param response 返回
+     * @param handler  要执行的处理程序
+     * @return 是否继续执行下一个拦截器
+     */
+    @Override
+    public boolean preHandle(HttpServletRequest request, @Nonnull HttpServletResponse response, @Nonnull Object handler) {
+        String userId = request.getHeader("Authorization");
+        UserHolder.set(userId);
+        return true;
+    }
+
+    /**
+     * 清理资源
+     *
+     * @param request   请求
+     * @param response  返回
+     * @param handler   要执行的处理程序
+     * @param exception 异常信息
+     */
+    @Override
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable Exception exception) {
+        log.debug("Project ThreadLocal 清理之前:{}", UserHolder.get());
+        UserHolder.clean();
+        log.debug("Project ThreadLocal 清理之之后:{}", UserHolder.get());
+    }
+
+}
+
+```
+
+将`LoginUserInterceptor`添加到拦截器队列中。
+
+```java
+/**
+ * SpringMVC配置
+ * @author contact@liuxp.me
+ * @since 2024/06/11
+ */
+@Configuration
+public class WebMvcConfig implements WebMvcConfigurer {
+
+    @Resource
+    private LoginUserInterceptor loginUserInterceptor;
+
+    /**
+     * 前置拦截器
+     */
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        // 登录用户
+        registry.addInterceptor(loginUserInterceptor).addPathPatterns("/storage/**");
+    }
+}
+```
+
+## 示例代码
+
+> [!TIP]
+> 可以查看项目仓库中 [/minio-plus-application/minio-plus-application-mysql](https://gitee.com/lxp135/minio-plus/tree/main/minio-plus-application/minio-plus-application-mysql) 路径。
+> 这是一个写好的，使用了`minio-plus-all-spring-boot-starter`和MySQL的例子。
 
 ## 使用 minio-plus-core-spring-boot-starter
+
+另外，除了使用`minio-plus-all-spring-boot-starter`，也可以使用`minio-plus-core-spring-boot-starter`。
+
+`minio-plus-core-spring-boot-starter` 中仅包含 Service 层接口，不再包含 Controller ，以便于希望自己编写 Controller 的同学使用。
+
+依赖应用如下所示：
+
+```xml
+        <dependency>
+            <groupId>me.liuxp</groupId>
+            <artifactId>minio-plus-core-spring-boot-starter</artifactId>
+            <version>0.1.2</version>
+        </dependency>
+```
+
+配置文件与使用 `minio-plus-all-spring-boot-starter` 时相同。
+
+> [!IMPORTANT]
+> 在使用 `minio-plus-core-spring-boot-starter` 时，Swagger 和 登录用户信息写入 两个步骤不再必要。 
+
+> [!TIP]
+> 可以查看项目仓库中 [/minio-plus-application/minio-plus-application-schedule](https://gitee.com/lxp135/minio-plus/tree/main/minio-plus-application/minio-plus-application-schedule) 路径。
+> 这是一个写好的，使用了`minio-plus-core-spring-boot-starter`和MySQL的例子。

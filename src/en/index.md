@@ -2,7 +2,6 @@
 layout: home
 
 title: MinIO-Plus
-titleTemplate: Be MinIO's best partner
 
 hero:
   name: MinIO-Plus
