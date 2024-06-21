@@ -1,7 +1,6 @@
 import {defineConfig} from 'vitepress';
 
 export default defineConfig({
-    base: "/minio-plus-docs/",
     // 对 markdown 的配置
     markdown: {
         toc: {
