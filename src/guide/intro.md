@@ -27,6 +27,12 @@
 [MinIO-Plus](https://gitee.com/lxp135/minio-plus/) 是一个 [MinIO](https://github.com/minio/minio) 的二次封装与增强工具，在
 MinIO 的基础上只做增强，不侵入 MinIO 代码，只为简化开发、提高效率而生。成为 MinIO 在项目中落地的润滑剂。
 
+*我们的开源原则*
+
+* ***我们承诺此项目使用 Apache License 2.0 开源许可证永不变更。***
+* ***我们承诺此项目使用永久免费可商用，杜绝文档收费、升级收费、功能收费等情况。***
+* ***我们承诺此项目绝不竞价排名，杜绝刷 star 数据、刷 fork 数据，保证项目纯洁。***
+
 ---
 
 # 特性
@@ -41,33 +47,18 @@ MinIO 的基础上只做增强，不侵入 MinIO 代码，只为简化开发、�
 * **访问链接时效** ：基于 MinIO 的临时链接创建策略，提供具备有效期并预签名的上传与下载地址。
 * **客户端直连** ：前端直连 MinIO ，项目工程不做文件流的搬运，在支持以上特性的情况下提供 MinIO 原生性能。
 
-# 文档目录
+# 仓库
 
-* [首页](intro)
-* [更新日志](released.md)
-* 用户手册
-    - [快速开始](user/quick-start)
-    - [API接口](user/api)
-    - [文件元数据](user/db)
-    - [配置文件](user/config)
-    - [非官方S3实现](user/custom)
-* 开发者手册
-    - [开发计划](developers/plan)
-    - [构建与运行](developers/building)
-    - [代码结构](developers/framework)
-    - [提交代码](developers/writing-code)
-    - [编写文档](developers/writing-documents)
-    - [贡献者列表](developers/contributors)
-* 核心机制
-    - [上传](core/upload)
-    - [下载](core/download)
-    - [客户端直连](core/direct)
-    - [缩略图](core/preview)
-    - [桶策略](core/bucket)
-    - [权限控制](core/auth)
-* 参考资料
-    - [FAQ](references/faq)
-    - [MinIO S3 接口](references/minio-s3-api)
-* MinIO 研究
-    - [MinIO 分片 ETAG 生成机制](study/etag)
-    - [Nginx 代理](study/proxy)
+文档
+
+* [https://gitee.com/lxp135/minio-plus-docs](https://gitee.com/lxp135/minio-plus-docs/)
+* [https://github.com/lxp135/minio-plus-docs](https://github.com/lxp135/minio-plus-docs/)
+
+代码
+
+* [https://gitee.com/lxp135/minio-plus](https://gitee.com/lxp135/minio-plus/)
+* [https://github.com/lxp135/minio-plus](https://github.com/lxp135/minio-plus/)
+
+# 版权
+
+本项目基于 [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) 开源协议，可用于商业项目。

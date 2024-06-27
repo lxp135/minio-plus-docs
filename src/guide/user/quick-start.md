@@ -46,30 +46,10 @@ minio-plus 是一个 Java 语言的 SDK ，通过 jar 包的形式发布到 Mave
 minioplus:
     # MinIO 部署地址
     backend: http://localhost:9000
-    # 浏览器访问地址，文件、图片上传下载访问地址代理，如果minio被nginx代理，需要配置这个参数为代理后的前端访问地址
-    browser-url: http://localhost:9000
     # 授权key
     key: minioadmin
     # 密钥
     secret: minioadmin
-    # 上传预签名URL有效期，单位为分钟，可选参数，默认值为60分钟
-    upload-expiry: 120
-    # 下载和预览预签名URL有效期，单位为分钟，可选参数，默认值为60分钟
-    download-expiry: 20
-    # 可选参数，分块配置
-    part:
-        # 可选参数，是否开启分块能力。默认为true
-        enable: true
-        # 可选参数，分块大小，配置单位为byte，默认为5242880
-        size: 5242880
-        # 可选参数，分块上传时建议并发数，默认为3
-        iis: 2
-    # 可选参数，缩略图配置
-    thumbnail:
-        # 可选参数，是否开启缩略图。默认为true
-        enable: true
-        # 可选参数，缩略图尺寸，默认为300
-        size: 300
 ```
 
 ## 文件元数据读写实现
