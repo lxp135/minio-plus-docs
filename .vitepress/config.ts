@@ -82,9 +82,9 @@ export default defineConfig({
         search: {
             provider: "algolia",
             options: {
-                appId: "37R7BXX01J",
-                apiKey: "4f040de33208cd087b871e2467bf58ec",
-                indexName: "string",
+                appId: "5CNF3IR0F6",
+                apiKey: "078458c650c76087af15e90d03e28618",
+                indexName: "index",
                 placeholder: "Search Doc",
             }
         },
