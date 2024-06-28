@@ -154,7 +154,7 @@ export default defineConfig({
                             link: '/guide/developers/writing-documents'
                         },
                         {
-                            text: '贡献者列表',
+                            text: '团队成员',
                             link: '/guide/developers/contributors'
                         },
                     ]
