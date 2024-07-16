@@ -27,25 +27,120 @@ export default defineConfig({
                     copyright: 'Copyright © 2024 <a href="https://liuxp.me" target="_blank">liuxp.me</a>'
                 },
                 nav: [
-                    {text: 'INTRO', link: '/en/guide/intro', activeMatch: '/en/guide/'},
-                    {text: 'FAQ', link: '/en/faq/', activeMatch: '/en/faq/'},
-                    {text: 'DONATE', link: '/guide/donate'},
+                    {text: 'INTRO', link: '/en/guide/intro'},
+                    {text: 'FAQ', link: '/en/references/faq'},
+                    {text: 'RELEASED', link: '/en/guide/released'},
                 ],
                 sidebar: {
                     '/en/guide/': [
                         {
-                            text: 'Getting Started',
+                            text: 'Introduction',
+                            link: '/en/guide/intro'
+                        },
+                        {
+                            text: 'Change Log',
+                            link: '/guide/released'
+                        }, {
+                            text: 'User Guide',
                             items: [
                                 {
-                                    text: 'Introduction',
-                                    link: '/en/guide/intro'
+                                    text: 'Quick Start',
+                                    link: '/guide/user/quick-start'
                                 },
                                 {
-                                    text: 'Quick Start',
-                                    link: '/en/guide/quick-start'
+                                    text: 'API',
+                                    link: '/guide/user/api'
+                                },
+                                {
+                                    text: 'File Metadata',
+                                    link: '/guide/user/db'
+                                },
+                                {
+                                    text: 'Config',
+                                    link: '/guide/user/config'
+                                },
+                            ]
+                        }, {
+                            text: 'Developer Guide',
+                            items: [
+                                {
+                                    text: 'Development Plan',
+                                    link: '/guide/developers/plan'
+                                },
+                                {
+                                    text: 'Building & Run',
+                                    link: '/guide/developers/building'
+                                },
+                                {
+                                    text: 'Code Structure',
+                                    link: '/guide/developers/framework'
+                                },
+                                {
+                                    text: 'Write Code',
+                                    link: '/guide/developers/writing-code'
+                                },
+                                {
+                                    text: 'Write Document',
+                                    link: '/guide/developers/writing-documents'
+                                },
+                                {
+                                    text: 'Contributors',
+                                    link: '/guide/developers/contributors'
+                                },
+                            ]
+                        }, {
+                            text: 'Core Logic',
+                            items: [
+                                {
+                                    text: 'Upload',
+                                    link: '/guide/core/upload'
+                                },
+                                {
+                                    text: 'Download',
+                                    link: '/guide/core/download'
+                                },
+                                {
+                                    text: 'Direct Connection',
+                                    link: '/guide/core/direct'
+                                },
+                                {
+                                    text: 'Preview',
+                                    link: '/guide/core/preview'
+                                },
+                                {
+                                    text: 'Bucket',
+                                    link: '/guide/core/bucket'
+                                },
+                                {
+                                    text: 'Permission',
+                                    link: '/guide/core/auth'
+                                },
+                            ]
+                        }, {
+                            text: 'References',
+                            items: [
+                                {
+                                    text: 'FAQ',
+                                    link: '/guide/references/faq'
+                                },
+                                {
+                                    text: 'MinIO S3 API',
+                                    link: '/guide/references/minio-s3-api'
                                 }
                             ]
-                        },
+                        }, {
+                            text: 'MinIO Study',
+                            items: [
+                                {
+                                    text: 'MinIO Sharding ETAG Generate',
+                                    link: '/guide/study/etag'
+                                },
+                                {
+                                    text: 'Nginx Proxy',
+                                    link: '/guide/study/proxy'
+                                }
+                            ]
+                        }
                     ],
                 }
             }
@@ -95,7 +190,7 @@ export default defineConfig({
         nav: [
             {text: '指引', link: '/guide/intro', activeMatch: '/zh/guide/'},
             {text: '常见问题', link: '/guide/references/faq', activeMatch: '/zh/faq/'},
-            {text: '捐赠', link: '/guide/donate'},
+            {text: '更新日志', link: '/guide/released'},
         ],
         sidebar: {
             '/guide/': [
@@ -124,10 +219,6 @@ export default defineConfig({
                         {
                             text: '配置文件',
                             link: '/guide/user/config'
-                        },
-                        {
-                            text: '非官方S3实现',
-                            link: '/guide/user/custom'
                         },
                     ]
                 }, {

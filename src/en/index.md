@@ -13,10 +13,10 @@ hero:
   actions:
     - theme: brand
       text: quick-start
-      link: /guide/user/quick-start
+      link: /en/guide/user/quick-start
     - theme: alt
       text: intro
-      link: /guide/intro
+      link: /en/guide/intro
     - theme: alt
       text: Github
       link: https://github.com/lxp135/minio-plus
