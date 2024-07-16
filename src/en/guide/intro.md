@@ -1,5 +1,5 @@
 <h1 align="center">MinIO Plus</h1>
-<h3 align="center">Our vision is to be the best partner of MinIO</h3>
+<h3 align="center">Becoming the Best Partner of MinIO</h3>
 
 <p align="center">
   <a target="_blank" href="https://central.sonatype.com/search?q=me.liuxp.minio-plus-all-spring-boot-starter">

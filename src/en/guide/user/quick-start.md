@@ -2,24 +2,24 @@
 
 [[TOC]]
 
-## 背景知识
-minio-plus 是一个 Java 语言的 SDK ，通过 jar 包的形式发布到 Maven 中央仓库。
+## Background Knowledge
+minio-plus is an SDK in Java, which is published to the Maven Central Repository in the form of a jar package.
 
-我们假设您已经具备已下知识：
-* 熟练使用 Java 相关 IDE ，具备 Java 开发环境
-* 熟练使用 Spring Boot 框架
-* 熟悉 Maven，或者是 Gradle 也行
+We assume you have the following knowledge:
+* Proficient in using Java-related IDEs, with a Java development environment
+* Proficient in using the Spring Boot framework
+* Familiar with Maven, or Gradle is also acceptable
 
-## 初始化工程
+## Initialize the Project
 
-创建一个空的 Spring Boot 工程。
+Create an empty Spring Boot project.
 
 > [!TIP]
-> 我们可以利用 [Spring Initializer](https://start.spring.io/) 来快速初始化一个 Spring Boot 工程。
+> We can use [Spring Initializer](https://start.spring.io/) to quickly initialize a Spring Boot project.
 
-## 添加依赖
+## Add Dependencies
 
-引入 MinIO Plus Starter 依赖
+Introduce MinIO Plus Starter dependency
 
 ### Spring Boot 2
 
@@ -33,32 +33,32 @@ minio-plus 是一个 Java 语言的 SDK ，通过 jar 包的形式发布到 Mave
 
 ### Spring Boot 3
 
-暂未发布，后续支持
+Not yet released, will be supported in the future
 
-## 配置参数
+## Configure
 
-在`application.yml`配置文件中，添加 MinIO Plus 相关配置项：
+In the `application.yml` configuration file, add MinIO Plus related configuration items:
 
 ```yaml
 ##################################################################
 ### MinIO Plus Config
 ##################################################################
 minioplus:
-    # MinIO 部署地址
+    # MinIO deployment address
     backend: http://localhost:9000
-    # 授权key
+    # Authorization key
     key: minioadmin
-    # 密钥
+    # Secret key
     secret: minioadmin
 ```
 
-## 文件元数据读写实现
+## Implement File Metadata Read and Write
 
-实现 MetadataRepository 接口类，举一个例子：
+Implement the MetadataRepository interface class, here is an example:
 
 ```java
 /**
- * 文件元数据接口实现类
+ * file metadata interface implement class
  *
  * @author contact@liuxp.me
  * @since 2024/05/22
@@ -157,9 +157,9 @@ public class MetadataRepositoryImpl extends ServiceImpl<FileMetadataInfoMapper, 
 }
 ```
 
-## Knife4j 和 Swagger （可选）
+## Knife4j and Swagger (Optional)
 
-如果项目上使用 Swagger 或者 Knife4j。在配置时，注意添加org.liuxp.minioplus.extension.controller路径。
+If the project uses Swagger or Knife4j, when configuring, remember to add the `org.liuxp.minioplus.extension.controller` path.
 
 ```java{15}
 /**
@@ -195,11 +195,11 @@ public class SwaggerConfig {
 
 ```
 
-## 登录用户信息写入
+## Writing Login User Information
 
-MinIO Plus 提供的文件权限功能，依赖于用户登录信息。
+The file permission functionality provided by MinIO Plus relies on user login information.
 
-需要在请求拦截器中调用UserHolder.set(userId)方法插入用户编号，游客访问时可以放入空字符串。
+You need to call the `UserHolder.set(userId)` method in the request interceptor to insert the user ID. For guest access, you can insert an empty string.
 
 ```java
 /**
@@ -246,7 +246,7 @@ public class LoginUserInterceptor implements HandlerInterceptor {
 
 ```
 
-将`LoginUserInterceptor`添加到拦截器队列中。
+Add the `LoginUserInterceptor` to the interceptor queue.
 
 ```java
 /**
@@ -271,19 +271,19 @@ public class WebMvcConfig implements WebMvcConfigurer {
 }
 ```
 
-## 示例代码
+## Example Code
 
 > [!TIP]
-> 可以查看项目仓库中 [/minio-plus-application/minio-plus-application-mysql](https://gitee.com/lxp135/minio-plus/tree/main/minio-plus-application/minio-plus-application-mysql) 路径。
-> 这是一个写好的，使用了`minio-plus-all-spring-boot-starter`和MySQL的例子。
+> You can check the project repository at [/minio-plus-application/minio-plus-application-mysql](https://gitee.com/lxp135/minio-plus/tree/main/minio-plus-application/minio-plus-application-mysql).
+> This is a well-written example that uses `minio-plus-all-spring-boot-starter` and MySQL.
 
-## 使用 minio-plus-core-spring-boot-starter
+## Using minio-plus-core-spring-boot-starter
 
-另外，除了使用`minio-plus-all-spring-boot-starter`，也可以使用`minio-plus-core-spring-boot-starter`。
+In addition to using `minio-plus-all-spring-boot-starter`, you can also use `minio-plus-core-spring-boot-starter`.
 
-`minio-plus-core-spring-boot-starter` 中仅包含 Service 层接口，不再包含 Controller ，以便于希望自己编写 Controller 的同学使用。
+`minio-plus-core-spring-boot-starter` only includes the Service layer interfaces and no longer includes the Controller, making it convenient for those who wish to write their own Controller.
 
-依赖应用如下所示：
+The dependency application is as follows:
 
 ```xml
         <dependency>
@@ -293,11 +293,11 @@ public class WebMvcConfig implements WebMvcConfigurer {
         </dependency>
 ```
 
-配置文件与使用 `minio-plus-all-spring-boot-starter` 时相同。
+The configuration file is the same as when using `minio-plus-all-spring-boot-starter`.
 
 > [!IMPORTANT]
-> 在使用 `minio-plus-core-spring-boot-starter` 时，Swagger 和 登录用户信息写入 两个步骤不再必要。 
+> When using `minio-plus-core-spring-boot-starter`, the two steps of configuring Swagger and writing login user information are no longer necessary.
 
 > [!TIP]
-> 可以查看项目仓库中 [/minio-plus-application/minio-plus-application-schedule](https://gitee.com/lxp135/minio-plus/tree/main/minio-plus-application/minio-plus-application-schedule) 路径。
-> 这是一个写好的，使用了`minio-plus-core-spring-boot-starter`和MySQL的例子。
+> You can check the project repository at [/minio-plus-application/minio-plus-application-schedule](https://gitee.com/lxp135/minio-plus/tree/main/minio-plus-application/minio-plus-application-schedule).
+> This is a well-written example that uses `minio-plus-core-spring-boot-starter` and MySQL.
