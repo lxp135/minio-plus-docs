@@ -5,7 +5,7 @@ title: MinIO-Plus
 
 hero:
   name: MinIO-Plus
-  text: Be MinIO's best partner
+  text: A secondary encapsulation and enhancement tool for MinIO
   tagline: Be MinIO's best partner
   image:
     src: /logo.svg
