@@ -39,25 +39,25 @@ export default defineConfig({
                         },
                         {
                             text: 'Change Log',
-                            link: '/guide/released'
+                            link: '/en/guide/released'
                         }, {
                             text: 'User Guide',
                             items: [
                                 {
                                     text: 'Quick Start',
-                                    link: '/guide/user/quick-start'
+                                    link: '/en/guide/user/quick-start'
                                 },
                                 {
                                     text: 'API',
-                                    link: '/guide/user/api'
+                                    link: '/en/guide/user/api'
                                 },
                                 {
                                     text: 'File Metadata',
-                                    link: '/guide/user/db'
+                                    link: '/en/guide/user/db'
                                 },
                                 {
                                     text: 'Config',
-                                    link: '/guide/user/config'
+                                    link: '/en/guide/user/config'
                                 },
                             ]
                         }, {
@@ -65,27 +65,27 @@ export default defineConfig({
                             items: [
                                 {
                                     text: 'Development Plan',
-                                    link: '/guide/developers/plan'
+                                    link: '/en/guide/developers/plan'
                                 },
                                 {
                                     text: 'Building & Run',
-                                    link: '/guide/developers/building'
+                                    link: '/en/guide/developers/building'
                                 },
                                 {
                                     text: 'Code Structure',
-                                    link: '/guide/developers/framework'
+                                    link: '/en/guide/developers/framework'
                                 },
                                 {
                                     text: 'Write Code',
-                                    link: '/guide/developers/writing-code'
+                                    link: '/en/guide/developers/writing-code'
                                 },
                                 {
                                     text: 'Write Document',
-                                    link: '/guide/developers/writing-documents'
+                                    link: '/en/guide/developers/writing-documents'
                                 },
                                 {
                                     text: 'Contributors',
-                                    link: '/guide/developers/contributors'
+                                    link: '/en/guide/developers/contributors'
                                 },
                             ]
                         }, {
@@ -93,27 +93,27 @@ export default defineConfig({
                             items: [
                                 {
                                     text: 'Upload',
-                                    link: '/guide/core/upload'
+                                    link: '/en/guide/core/upload'
                                 },
                                 {
                                     text: 'Download',
-                                    link: '/guide/core/download'
+                                    link: '/en/guide/core/download'
                                 },
                                 {
                                     text: 'Direct Connection',
-                                    link: '/guide/core/direct'
+                                    link: '/en/guide/core/direct'
                                 },
                                 {
                                     text: 'Preview',
-                                    link: '/guide/core/preview'
+                                    link: '/en/guide/core/preview'
                                 },
                                 {
                                     text: 'Bucket',
-                                    link: '/guide/core/bucket'
+                                    link: '/en/guide/core/bucket'
                                 },
                                 {
                                     text: 'Permission',
-                                    link: '/guide/core/auth'
+                                    link: '/en/guide/core/auth'
                                 },
                             ]
                         }, {
@@ -121,11 +121,11 @@ export default defineConfig({
                             items: [
                                 {
                                     text: 'FAQ',
-                                    link: '/guide/references/faq'
+                                    link: '/en/guide/references/faq'
                                 },
                                 {
                                     text: 'MinIO S3 API',
-                                    link: '/guide/references/minio-s3-api'
+                                    link: '/en/guide/references/minio-s3-api'
                                 }
                             ]
                         }, {
@@ -133,11 +133,11 @@ export default defineConfig({
                             items: [
                                 {
                                     text: 'MinIO Sharding ETAG Generate',
-                                    link: '/guide/study/etag'
+                                    link: '/en/guide/study/etag'
                                 },
                                 {
                                     text: 'Nginx Proxy',
-                                    link: '/guide/study/proxy'
+                                    link: '/en/guide/study/proxy'
                                 }
                             ]
                         }
