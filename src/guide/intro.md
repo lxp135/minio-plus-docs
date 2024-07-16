@@ -2,7 +2,7 @@
 <h3 align="center">我们的愿景是成为 MinIO 最好的搭档</h3>
 <p>
   <a style="float: left;padding-left:110px;padding-right: 5px;" target="_blank" href="https://central.sonatype.com/search?q=me.liuxp.minio-plus-all-spring-boot-starter">
-      <img src="https://img.shields.io/maven-central/v/me.liuxp/minio-plus-core.svg?label=Maven%20Central" />
+      <img src="https://img.shields.io/maven-central/v/me.liuxp/minio-plus-core.svg?label=Maven%20Central"  alt="版本"/>
   </a>
   <a style="float: left;padding-right: 5px;" target="_blank" href="https://www.apache.org/licenses/LICENSE-2.0">
       <img src="https://img.shields.io/badge/license-Apache%202-green.svg" alt="开源协议" />
