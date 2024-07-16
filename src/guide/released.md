@@ -1,8 +1,19 @@
 # 更新日志
 
+## v0.1.3 (2024-07-15)
+
+### Bugfix
+
+* 解决 upload.html 测试页面大文件上传时，前端计算MD5值卡死问题。
+* 后端调用 StorageService.createFile 方法时，同一用户上传相同文件可以正常生成不同的 fileKey 了。
+
+### Feature
+
+* StorageService 类添加 createBigFile 大文件上传接口。
+
 ## v0.1.2 (2024-06-18)
 
-### Bugfix:
+### Bugfix
 
 无
 
@@ -14,7 +25,7 @@
 
 ## v0.1.1 (2024-06-12)
 
-### Bugfix:
+### Bugfix
 
 * 升级`mybatisplus` 3.5.3.1 -> 3.5.7
 * 升级`lombok` 1.18.24 -> 1.18.32
@@ -31,7 +42,7 @@
 
 第一个预览版本发布，该版本实现了基本的上传、预览、下载等功能。
 
-### Bugfix:
+### Bugfix
 
 无
 
