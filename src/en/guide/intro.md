@@ -1,20 +1,19 @@
 <h1 align="center">MinIO Plus</h1>
 <h3 align="center">Becoming the Best Partner of MinIO</h3>
-
-<p align="center">
-  <a target="_blank" href="https://central.sonatype.com/search?q=me.liuxp.minio-plus-all-spring-boot-starter">
+<p>
+  <a style="float: left;padding-left:110px;padding-right: 5px;" target="_blank" href="https://central.sonatype.com/search?q=me.liuxp.minio-plus-all-spring-boot-starter">
       <img src="https://img.shields.io/maven-central/v/me.liuxp/minio-plus-core.svg?label=Maven%20Central"  alt="version"/>
   </a>
-  <a target="_blank" href="https://www.apache.org/licenses/LICENSE-2.0">
+  <a style="float: left;padding-right: 5px;" target="_blank" href="https://www.apache.org/licenses/LICENSE-2.0">
       <img src="https://img.shields.io/badge/license-Apache%202-green.svg" alt="Open Source License" />
   </a>
-  <a target="_blank" href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">
+  <a style="float: left;padding-right: 5px;" target="_blank" href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">
       <img src="https://img.shields.io/badge/JDK-8+-red.svg" alt='JDK Version'/>
   </a>
-  <a href="https://github.com/lxp135/minio-plus">
+  <a style="float: left;padding-right: 5px;" href="https://github.com/lxp135/minio-plus">
     <img src="https://img.shields.io/github/stars/lxp135/minio-plus?style=social" alt="Gitee fork">
   </a>
-  <a href="https://github.com/lxp135/minio-plus">
+  <a style="float: left;padding-right: 5px;" href="https://github.com/lxp135/minio-plus">
     <img src="https://img.shields.io/github/forks/lxp135/minio-plus?style=social" alt="Gitee fork">
   </a>
   <br />
