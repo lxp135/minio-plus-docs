@@ -3,7 +3,8 @@ import {defineConfig} from 'vitepress';
 export default defineConfig({
     // 站点地图
     sitemap: {
-        hostname: 'https://minioplus.liuxp.me'
+        hostname: 'https://minioplus.liuxp.me',
+        lastmodDateOnly: true
     },
     // 对 markdown 的配置
     markdown: {
