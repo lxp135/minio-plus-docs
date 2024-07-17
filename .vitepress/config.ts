@@ -1,6 +1,10 @@
 import {defineConfig} from 'vitepress';
 
 export default defineConfig({
+    // 站点地图
+    sitemap: {
+        hostname: 'https://minioplus.liuxp.me'
+    },
     // 对 markdown 的配置
     markdown: {
         toc: {
