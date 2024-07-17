@@ -13,7 +13,7 @@ The main technical issues involved in implementing instant upload are generating
 * File Unique Identifier Generation: On the browser side, the MD5 hash algorithm is used to encode the file being transferred. The encoding result is a string that serves as the file's unique identifier.
 * File Duplication Detection: On the server side, the received file unique identifier is searched in the database. If the same file unique identifier is found in the database, it is determined that the file exists and does not need to be transferred again.
 
-### Chunked Upload
+## Chunked Upload
 
 Chunked upload is a technique that divides large files into multiple segments for concurrent or sequential upload. It offers several benefits:
 
