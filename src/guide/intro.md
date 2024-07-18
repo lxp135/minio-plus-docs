@@ -1,31 +1,21 @@
 <h1 align="center">MinIO Plus</h1>
 <h3 align="center">我们的愿景是成为 MinIO 最好的搭档</h3>
-<p>
-  <a style="float: left;padding-left:110px;padding-right: 5px;" target="_blank" href="https://central.sonatype.com/search?q=me.liuxp.minio-plus-all-spring-boot-starter">
-      <img src="https://img.shields.io/maven-central/v/me.liuxp/minio-plus-core.svg?label=Maven%20Central"  alt="版本"/>
-  </a>
-  <a style="float: left;padding-right: 5px;" target="_blank" href="https://www.apache.org/licenses/LICENSE-2.0">
-      <img src="https://img.shields.io/badge/license-Apache%202-green.svg" alt="开源协议" />
-  </a>
-  <a style="float: left;padding-right: 5px;" target="_blank" href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">
-      <img src="https://img.shields.io/badge/JDK-8+-red.svg" alt='JDK版本'/>
-  </a>
-  <a style="float: left;padding-right: 5px;" href='https://gitee.com/lxp135/minio-plus'>
-      <img src='https://gitee.com/lxp135/minio-plus/badge/star.svg?theme=dark' alt='star' />
-  </a>
-  <a style="float: left;padding-right: 5px;" href="https://gitee.com/lxp135/minio-plus">
-    <img src="https://gitee.com/lxp135/minio-plus/badge/fork.svg?theme=dark" alt="Gitee fork">
-  </a>
-  <br />
-</p>
 
+[![Version](https://img.shields.io/maven-central/v/me.liuxp/minio-plus-core)](https://central.sonatype.com/search?q=me.liuxp.minio-plus-all-spring-boot-starter)
+[![License](https://img.shields.io/badge/license-Apache%202-green)](https://www.apache.org/licenses/LICENSE-2.0)
+[![JDK](https://img.shields.io/badge/JDK-8+-red)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=lxp135_minio-plus&metric=security_rating)](https://sonarcloud.io/dashboard?id=lxp135_minio-plus)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=lxp135_minio-plus&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=lxp135_minio-plus)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=lxp135_minio-plus&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=lxp135_minio-plus)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=lxp135_minio-plus&metric=alert_status)](https://sonarcloud.io/dashboard?id=lxp135_minio-plus)
+[![star](https://gitee.com/lxp135/minio-plus/badge/star.svg?theme=dark)](https://gitee.com/lxp135/minio-plus)
+[![fork](https://gitee.com/lxp135/minio-plus/badge/fork.svg?theme=dark)](https://gitee.com/lxp135/minio-plus)
 
 ---
 
 # 介绍
 
-[MinIO-Plus](https://gitee.com/lxp135/minio-plus/) 是一个 [MinIO](https://github.com/minio/minio) 的二次封装与增强工具，在
-MinIO 的基础上只做增强，不侵入 MinIO 代码，只为简化开发、提高效率而生。成为 MinIO 在项目中落地的润滑剂。
+[MinIO-Plus](https://gitee.com/lxp135/minio-plus/) 是一个 [MinIO](https://github.com/minio/minio) 的二次封装与增强工具，在 MinIO 的基础上只做增强，不侵入 MinIO 代码，只为简化开发、提高效率而生。成为 MinIO 在项目中落地的润滑剂。
 
 *我们的开源原则*
 
