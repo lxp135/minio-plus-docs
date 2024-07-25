@@ -45,3 +45,7 @@ features:
     title: 客户端直连
     details: 前端直连 MinIO ，项目工程不做文件流的搬运，在支持以上特性的情况下提供 MinIO 原生性能。
 ---
+
+::: example
+Example
+:::

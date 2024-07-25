@@ -1,0 +1,24 @@
+{
+  "vue-steup": {
+    "scope": "vue",
+    "prefix": "vue",
+    "body": [
+      "<script setup lang=\"ts\">",
+      "import { useNamespace } from 'nms-util'",
+      "const ns = useNamespace('$1')",
+      "</script>",
+      "",
+      "<template>",
+      "  <div :class=\"ns.b()\">",
+      "    $1",
+      "  </div>",
+      "</template>",
+      "",
+      "<style scoped lang=\"scss\">",
+      "@import 'nms-theme';",
+      "@include b($1) {}",
+      "</style>",
+      "",
+    ]
+  }
+}
