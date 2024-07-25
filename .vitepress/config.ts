@@ -46,6 +46,22 @@ export default defineConfig({
                             text: 'Change Log',
                             link: '/en/guide/released'
                         }, {
+                            text: 'Frontend Guide',
+                            items: [
+                                {
+                                    text: 'Frontend Module Demo',
+                                    link: '/guide/frontend/module-demo'
+                                },
+                                {
+                                    text: 'Frontend Module API',
+                                    link: '/guide/frontend/module-api'
+                                },
+                                {
+                                    text: 'Frontend Module Change Log',
+                                    link: '/guide/frontend/module-released'
+                                },
+                            ]
+                        },{
                             text: 'User Guide',
                             items: [
                                 {
@@ -207,6 +223,22 @@ export default defineConfig({
                     text: '更新日志',
                     link: '/guide/released'
                 }, {
+                    text: '前端组件手册',
+                    items: [
+                        {
+                            text: '组件使用示例',
+                            link: '/guide/frontend/module-demo'
+                        },
+                        {
+                            text: '组件API',
+                            link: '/guide/frontend/module-api'
+                        },
+                        {
+                            text: '组件更新日志',
+                            link: '/guide/frontend/module-released'
+                        },
+                    ]
+                },{
                     text: '用户手册',
                     items: [
                         {
