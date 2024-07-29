@@ -18,7 +18,7 @@ sidebar: {
             text: '更新日志',
             link: '/guide/released'
         }, {
-            text: '前端组件手册',
+            text: '前端组件',
             items: [
                 {
                     text: '组件使用示例',
