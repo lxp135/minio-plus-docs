@@ -123,7 +123,7 @@ function insertLog(title: string, msg: any, content?: any) {
 
 <template>
   <div style="display: flex;gap:20px;height: 100%;justify-content: center;min-width: 1000px;margin-top: 64px;">
-    <div style="display: flex;gap:20px;width: 400px;min-width: 400px;flex-direction: column;">
+    <div style="display: flex;gap:20px;width: 500px;min-width: 400px;flex-direction: column;">
       <el-card style="height: 231px;">
         <el-upload class="upload-demo" drag :show-file-list="false" :before-upload="beforeUploadHandle">
           <el-icon class="el-icon--upload">
@@ -166,12 +166,12 @@ function insertLog(title: string, msg: any, content?: any) {
         </el-form>
       </el-card>
     </div>
-    <div style="display: flex;gap:20px;flex:1;max-width:576px;flex-direction: column;">
+    <div style="display: flex;gap:20px;flex:1;max-width:650px;flex-direction: column;">
       <el-card style="height: 300px;overflow-y: auto;">
         <template #header>
           已上传文件列表
         </template>
-        <el-upload v-model:file-list="state.fileList" :on-preview="handlePreview" list-type="picture" />
+        <el-upload v-model:file-list="state.fileList" :on-preview="handlePreview"  />
       </el-card>
       <el-card style="flex:1;overflow-y: auto;height: 500px;min-height: 500px;max-height: 500px;">
         <template #header>
