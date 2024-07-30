@@ -56,10 +56,10 @@ let _defaultOption: Option = {
   authorization: '',
   isPrivate: false,
   concurrentLimit: 5,
-  downloadURL: 'https://mpdemo.liuxp.me/storage/download/',
-  initURL: 'https://mpdemo.liuxp.me/storage/upload/init',
-  shardURL: 'https://mpdemo.liuxp.me/storage/upload/sharding',
-  completeURL: 'https://mpdemo.liuxp.me/storage/upload/complete/',
+  downloadURL: '/api/storage/download/',
+  initURL: '/api/storage/upload/init',
+  shardURL: '/api/storage/upload/sharding',
+  completeURL: '/api/storage/upload/complete/',
 }
 
 let _file: Partial<FileType> = {}
@@ -97,10 +97,10 @@ async function _initData() {
     authorization: '',
     isPrivate: false,
     concurrentLimit: 5,
-    downloadURL: 'https://mpdemo.liuxp.me/storage/download/',
-    initURL: 'https://mpdemo.liuxp.me/storage/upload/init',
-    shardURL: 'https://mpdemo.liuxp.me/storage/upload/sharding',
-    completeURL: 'https://mpdemo.liuxp.me/storage/upload/complete/',
+    downloadURL: '/api/storage/download/',
+    initURL: '/api/storage/upload/init',
+    shardURL: '/api/storage/upload/sharding',
+    completeURL: '/api/storage/upload/complete/',
   }
   _defaultCallbackOption = undefined
   _state = {
