@@ -6,6 +6,7 @@ import { mdPlugin } from './plugin'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base: "/minio-plus-docs/",
   cacheDir: '../cache',
   // 站点地图
   sitemap: {
