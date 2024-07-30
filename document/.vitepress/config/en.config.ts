@@ -22,15 +22,15 @@ export default {
               items: [
                   {
                       text: 'Frontend Module Demo',
-                      link: '/guide/frontend/module-demo'
+                      link: '/en/guide/frontend/module-demo'
                   },
                   {
                       text: 'Frontend Module API',
-                      link: '/guide/frontend/module-api'
+                      link: '/en/guide/frontend/module-api'
                   },
                   {
                       text: 'Frontend Module Change Log',
-                      link: '/guide/frontend/module-released'
+                      link: '/en/guide/frontend/module-released'
                   },
               ]
           },{
