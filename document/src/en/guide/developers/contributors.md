@@ -33,6 +33,15 @@ const coreMembers = [
     name: 'LJQ',
     title: 'Frontend Developer',
     links: [
+      { icon: 'mail', link: 'mailto:jinqi1102@gamil.com' }
+    ],
+  },
+  {
+    avatar: '/image/developer3.jpg',
+    name: '王宏亮',
+    title: 'Backend Developer',
+    links: [
+      { icon: 'mail', link: 'mailto:whl@whl.net.cn' }
     ],
   },
 ]
