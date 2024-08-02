@@ -24,16 +24,36 @@ minio-plus 是一个 Java 语言的 SDK ，通过 jar 包的形式发布到 Mave
 ### Spring Boot 2
 
 ```xml
-        <dependency>
-            <groupId>me.liuxp</groupId>
-            <artifactId>minio-plus-all-spring-boot-starter</artifactId>
-            <version>0.1.3</version>
-        </dependency>
+<dependencys>
+    <dependency>
+        <groupId>me.liuxp</groupId>
+        <artifactId>minio-plus-all-springboot2-starter</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+    <dependency>
+        <groupId>me.liuxp</groupId>
+        <artifactId>s3-api-minio</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+</dependencys>
 ```
 
 ### Spring Boot 3
 
-暂未发布，后续支持
+```xml
+<dependencys>
+    <dependency>
+        <groupId>me.liuxp</groupId>
+        <artifactId>minio-plus-all-springboot-starter</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+    <dependency>
+        <groupId>me.liuxp</groupId>
+        <artifactId>s3-api-minio</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+</dependencys>
+```
 
 ## 配置参数
 
@@ -274,30 +294,37 @@ public class WebMvcConfig implements WebMvcConfigurer {
 ## 示例代码
 
 > [!TIP]
-> 可以查看项目仓库中 [/minio-plus-application/minio-plus-application-mysql](https://gitee.com/lxp135/minio-plus/tree/main/minio-plus-application/minio-plus-application-mysql) 路径。
-> 这是一个写好的，使用了`minio-plus-all-spring-boot-starter`和MySQL的例子。
+> 可以查看项目仓库中 [/minio-plus-application/minio-plus-application-springboot3](https://gitee.com/lxp135/minio-plus/tree/main/minio-plus-application/minio-plus-application-springboot3) 路径。
+> 这是一个写好的，使用了`minio-plus-all-springboot-starter`和MySQL的例子。
 
-## 使用 minio-plus-core-spring-boot-starter
+## 使用 minio-plus-core-springboot-starter
 
-另外，除了使用`minio-plus-all-spring-boot-starter`，也可以使用`minio-plus-core-spring-boot-starter`。
+另外，除了使用`minio-plus-all-springboot-starter`，也可以使用`minio-plus-core-springboot-starter`。
 
-`minio-plus-core-spring-boot-starter` 中仅包含 Service 层接口，不再包含 Controller ，以便于希望自己编写 Controller 的同学使用。
+`minio-plus-core-springboot-starter` 中仅包含 Service 层接口，不再包含 Controller ，以便于希望自己编写 Controller 的同学使用。
 
 依赖应用如下所示：
 
 ```xml
-        <dependency>
-            <groupId>me.liuxp</groupId>
-            <artifactId>minio-plus-core-spring-boot-starter</artifactId>
-            <version>0.1.3</version>
-        </dependency>
+<dependencys>
+    <dependency>
+        <groupId>me.liuxp</groupId>
+        <artifactId>minio-plus-core-springboot-starter</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+    <dependency>
+        <groupId>me.liuxp</groupId>
+        <artifactId>s3-api-minio</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+</dependencys>
 ```
 
-配置文件与使用 `minio-plus-all-spring-boot-starter` 时相同。
+配置文件与使用 `minio-plus-all-springboot-starter` 时相同。
 
 > [!IMPORTANT]
 > 在使用 `minio-plus-core-spring-boot-starter` 时，Swagger 和 登录用户信息写入 两个步骤不再必要。 
 
 > [!TIP]
 > 可以查看项目仓库中 [/minio-plus-application/minio-plus-application-schedule](https://gitee.com/lxp135/minio-plus/tree/main/minio-plus-application/minio-plus-application-schedule) 路径。
-> 这是一个写好的，使用了`minio-plus-core-spring-boot-starter`和MySQL的例子。
+> 这是一个写好的，使用了`minio-plus-core-springboot2-starter`和MySQL的例子。

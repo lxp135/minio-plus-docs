@@ -5,7 +5,7 @@ export default {
   },
   nav: [
       {text: 'INTRO', link: '/en/guide/intro'},
-      {text: 'FAQ', link: '/en/references/faq'},
+      {text: 'FAQ', link: '/en/guide/references/faq'},
       {text: 'RELEASED', link: '/en/guide/released'},
   ],
   sidebar: {

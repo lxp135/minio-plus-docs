@@ -1,7 +1,2 @@
-# minio-plus-helper
-
-## 安装
-
-```bash
-npm install minio-plus-helper
-```
+# minio-plus-docs
+MinIO-Plus 官方文档仓库

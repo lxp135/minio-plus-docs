@@ -24,16 +24,36 @@ Introduce MinIO Plus Starter dependency
 ### Spring Boot 2
 
 ```xml
-        <dependency>
-            <groupId>me.liuxp</groupId>
-            <artifactId>minio-plus-all-spring-boot-starter</artifactId>
-            <version>0.1.3</version>
-        </dependency>
+<dependencys>
+    <dependency>
+        <groupId>me.liuxp</groupId>
+        <artifactId>minio-plus-all-springboot2-starter</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+    <dependency>
+        <groupId>me.liuxp</groupId>
+        <artifactId>s3-api-minio</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+</dependencys>
 ```
 
 ### Spring Boot 3
 
-Not yet released, will be supported in the future
+```xml
+<dependencys>
+    <dependency>
+        <groupId>me.liuxp</groupId>
+        <artifactId>minio-plus-all-springboot-starter</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+    <dependency>
+        <groupId>me.liuxp</groupId>
+        <artifactId>s3-api-minio</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+</dependencys>
+```
 
 ## Configure
 
@@ -274,30 +294,37 @@ public class WebMvcConfig implements WebMvcConfigurer {
 ## Example Code
 
 > [!TIP]
-> You can check the project repository at [/minio-plus-application/minio-plus-application-mysql](https://gitee.com/lxp135/minio-plus/tree/main/minio-plus-application/minio-plus-application-mysql).
-> This is a well-written example that uses `minio-plus-all-spring-boot-starter` and MySQL.
+> You can check the project repository at [/minio-plus-application/minio-plus-application-springboot3](https://github.com/lxp135/minio-plus/tree/main/minio-plus-application/minio-plus-application-springboot3).
+> This is a well-written example that uses `minio-plus-all-springboot-starter` and MySQL.
 
-## Using minio-plus-core-spring-boot-starter
+## Using minio-plus-core-springboot-starter
 
-In addition to using `minio-plus-all-spring-boot-starter`, you can also use `minio-plus-core-spring-boot-starter`.
+In addition to using `minio-plus-all-springboot-starter`, you can also use `minio-plus-core-springboot-starter`.
 
-`minio-plus-core-spring-boot-starter` only includes the Service layer interfaces and no longer includes the Controller, making it convenient for those who wish to write their own Controller.
+`minio-plus-core-springboot-starter` only includes the Service layer interfaces and no longer includes the Controller, making it convenient for those who wish to write their own Controller.
 
 The dependency application is as follows:
 
 ```xml
-        <dependency>
-            <groupId>me.liuxp</groupId>
-            <artifactId>minio-plus-core-spring-boot-starter</artifactId>
-            <version>0.1.3</version>
-        </dependency>
+<dependencys>
+    <dependency>
+        <groupId>me.liuxp</groupId>
+        <artifactId>minio-plus-core-springboot-starter</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+    <dependency>
+        <groupId>me.liuxp</groupId>
+        <artifactId>s3-api-minio</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+</dependencys>
 ```
 
-The configuration file is the same as when using `minio-plus-all-spring-boot-starter`.
+The configuration file is the same as when using `minio-plus-all-springboot-starter`.
 
 > [!IMPORTANT]
-> When using `minio-plus-core-spring-boot-starter`, the two steps of configuring Swagger and writing login user information are no longer necessary.
+> When using `minio-plus-core-springboot-starter`, the two steps of configuring Swagger and writing login user information are no longer necessary.
 
 > [!TIP]
-> You can check the project repository at [/minio-plus-application/minio-plus-application-schedule](https://gitee.com/lxp135/minio-plus/tree/main/minio-plus-application/minio-plus-application-schedule).
-> This is a well-written example that uses `minio-plus-core-spring-boot-starter` and MySQL.
+> You can check the project repository at [/minio-plus-application/minio-plus-application-schedule](https://github.com/lxp135/minio-plus/tree/main/minio-plus-application/minio-plus-application-schedule).
+> This is a well-written example that uses `minio-plus-core-springboot2-starter` and MySQL.
