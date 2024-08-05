@@ -4,7 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "npm run dev -w document",
-    "docs:build": "npm run build -w document"
+    "docs:build": "npm run build -w document",
+    "release": "cd ./dist/package && npm publish",
+    "release:patch": "npm version patch -w package && npm run release",
+    "release:minor": "npm version minor -w package && npm run release",
+    "release:major": "npm version major -w package && npm run release"
   },
   "workspaces": [
     "package",
