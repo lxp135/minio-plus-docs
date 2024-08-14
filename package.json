@@ -3,16 +3,17 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "npm run dev -w document",
-    "docs:build": "npm run build -w document"
+    "dev": "pnpm -F document run dev",
+    "docs:build": "pnpm -F document run build"
   },
   "workspaces": [
-    "package",
+    "packages/*",
     "document"
   ],
   "devDependencies": {
     "@antfu/eslint-config": "2.8.0",
     "eslint": "8.57.0",
-    "eslint-plugin-format": "0.1.0"
+    "eslint-plugin-format": "0.1.0",
+    "minio-plus-helper": "workspace:*"
   }
 }
