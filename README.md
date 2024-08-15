@@ -1,14 +1,15 @@
 # minio-plus-docs
 MinIO-Plus 官方文档仓库
 
-## 运行
+## Usage
 
-```
-npm run dev -w document
-```
+```sh
+# install dependencies
+pnpm install
 
-## 编译
+# run document
+pnpm run dev
 
-```
-npm run build -w document
+# build document
+pnpm run docs:build
 ```
