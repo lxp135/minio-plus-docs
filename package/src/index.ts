@@ -237,13 +237,36 @@ async function _completeUpload() {
  * @returns {Promise<string>}
  */
 function _getFileMd5(file: Blob | File): Promise<string> {
-  const fileReader = new FileReader()
-  fileReader.readAsBinaryString(file as Blob)
-  const spark = new SparkMD5()
-  return new Promise((resolve) => {
+  const
+    blobSlice = File.prototype.slice || File.prototype.mozSlice || File.prototype.webkitSlice,
+    chunkSize = 2097152, // Read in chunks of 2MB
+    chunks = Math.ceil(file.size / chunkSize),
+    spark = new SparkMD5.ArrayBuffer(),
+    fileReader = new FileReader()
+  let currentChunk = 0
+
+  function loadNext() {
+    var start = currentChunk * chunkSize,
+      end = ((start + chunkSize) >= file.size) ? file.size : start + chunkSize
+
+    fileReader.readAsArrayBuffer(blobSlice.call(file, start, end))
+  }
+
+  loadNext()
+
+  return new Promise((resolve, reject) => {
     fileReader.onload = (e) => {
-      spark.appendBinary(e.target?.result as string)
-      resolve(spark.end(false))
+      spark.append(e.target?.result as string)
+      currentChunk++
+
+      if (currentChunk < chunks) {
+        loadNext()
+      } else {
+        resolve(spark.end(false))
+      }
+    }
+    fileReader.onerror = (err) => {
+      reject(err)
     }
   })
 }
