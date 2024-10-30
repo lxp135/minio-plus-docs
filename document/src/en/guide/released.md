@@ -1,5 +1,16 @@
 # Changelog
 
+## v1.0.1 (2024-10-30)
+
+### Bug Fixes
+
+Addressed some code smells identified by Sonar scans.
+
+### Compatibility Adjustments
+
+Considering that many projects are still on older versions of Spring Boot, support has been downgraded to Spring Boot 2.6.x. 
+The Spring Boot version has been downgraded from 2.7.18 to 2.6.13.
+
 ## v1.0.0 (2024-08-02)
 
 ### BUG Fixes
