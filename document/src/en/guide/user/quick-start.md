@@ -28,12 +28,12 @@ Introduce MinIO Plus Starter dependency
     <dependency>
         <groupId>me.liuxp</groupId>
         <artifactId>minio-plus-all-springboot2-starter</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.2</version>
     </dependency>
     <dependency>
         <groupId>me.liuxp</groupId>
         <artifactId>s3-api-minio</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.2</version>
     </dependency>
 </dependencys>
 ```
@@ -45,12 +45,12 @@ Introduce MinIO Plus Starter dependency
     <dependency>
         <groupId>me.liuxp</groupId>
         <artifactId>minio-plus-all-springboot-starter</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.2</version>
     </dependency>
     <dependency>
         <groupId>me.liuxp</groupId>
         <artifactId>s3-api-minio</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.2</version>
     </dependency>
 </dependencys>
 ```
@@ -310,12 +310,12 @@ The dependency application is as follows:
     <dependency>
         <groupId>me.liuxp</groupId>
         <artifactId>minio-plus-core-springboot-starter</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.2</version>
     </dependency>
     <dependency>
         <groupId>me.liuxp</groupId>
         <artifactId>s3-api-minio</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.2</version>
     </dependency>
 </dependencys>
 ```
