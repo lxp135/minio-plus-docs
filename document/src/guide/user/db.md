@@ -26,6 +26,17 @@
 | update_time    | datetime |        | True     | False   |      | 更新时间           |
 | update_user    | varchar  | 255    | True     | False   |      | 更新用户           |
 
+## 部分字段解析
+
+* file_key 文件KEY，该字段全表唯一，为自动生成的32位UUID。每次上传文件均生成新的文件KEY，即便是秒传的相同MD5文件也会生成新的文件KEY。
+* file_md5 文件MD5值，该字段是文件的HASH值，用于对应实际在 minio 桶中存储的文件。
+* file_name 文件名，文件上传时本地原始文件名称，含扩展名。
+* file_mime_type 内容类型，根据文件名中的扩展名进行识别，对应 minio 桶中文件的 Content-Type 属性。
+* file_suffix 文件后缀，即扩展名。
+* bucket 和 bucket_path 存储桶和路径，用于保存文件在 minio 中存储的桶和路径，bucket + bucket_path + file_md5 即为文件在 minio 中的物理位置。
+* upload_id 上传任务id，对应 minio 官方 SDK 中 uploadTaskId 字段。在进行分片上传时生成该字段，断点续传时判断是否能续传也会用到该字段。
+* is_finished 状态，文件是否上传完成。
+
 ## MySQL脚本
 ```
 CREATE TABLE `file_metadata_info` (
