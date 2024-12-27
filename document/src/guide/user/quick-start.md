@@ -294,8 +294,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
 ## 示例代码
 
 > [!TIP]
-> 可以查看项目仓库中 [/minio-plus-application/minio-plus-application-springboot3](https://gitee.com/lxp135/minio-plus/tree/main/minio-plus-application/minio-plus-application-springboot3) 路径。
-> 这是一个写好的，使用了`minio-plus-all-springboot-starter`和MySQL的例子。
+> 可以查看示例项目仓库 [minio-plus-demo](https://gitee.com/lxp135/minio-plus-demo) 
+> 其中的`minio-plus-application-springboot2`和`minio-plus-application-springboot3`工程。
+
 
 ## 使用 minio-plus-core-springboot-starter
 
@@ -326,5 +327,5 @@ public class WebMvcConfig implements WebMvcConfigurer {
 > 在使用 `minio-plus-core-spring-boot-starter` 时，Swagger 和 登录用户信息写入 两个步骤不再必要。 
 
 > [!TIP]
-> 可以查看项目仓库中 [/minio-plus-application/minio-plus-application-schedule](https://gitee.com/lxp135/minio-plus/tree/main/minio-plus-application/minio-plus-application-schedule) 路径。
+> > 可以查看示例项目仓库 [minio-plus-demo](https://gitee.com/lxp135/minio-plus-demo) ，其中的`minio-plus-application-schedule`工程。
 > 这是一个写好的，使用了`minio-plus-core-springboot2-starter`和MySQL的例子。
