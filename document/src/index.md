@@ -19,9 +19,6 @@ hero:
       text: 介绍
       link: /guide/intro
     - theme: alt
-      text: 在Github上查看
-      link: https://github.com/lxp135/minio-plus
-    - theme: alt
       text: 在Gitee上查看
       link: https://gitee.com/lxp135/minio-plus
 

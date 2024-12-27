@@ -20,9 +20,6 @@ hero:
     - theme: alt
       text: Github
       link: https://github.com/lxp135/minio-plus
-    - theme: alt
-      text: Gitee
-      link: https://gitee.com/lxp135/minio-plus
 
 features:
   - icon: 🏹
