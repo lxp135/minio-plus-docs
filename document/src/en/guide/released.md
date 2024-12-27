@@ -1,5 +1,16 @@
 # Changelog
 
+## v1.0.2 (2024-12-04)
+
+### Bug Fixes
+
+* Resolve the issue where the Content-Type of files in MinIO buckets is not saved correctly.
+* Fix the problem where file streams are not properly closed in certain situations.
+
+### Performance Optimization
+
+* Address the slow SQL issue that may occur during download, preview, or deletion when a large number of identical MD5 files exist in the metadata.
+
 ## v1.0.1 (2024-10-30)
 
 ### Bug Fixes
