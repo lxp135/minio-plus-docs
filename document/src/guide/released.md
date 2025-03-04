@@ -1,5 +1,11 @@
 # 更新日志
 
+## v1.0.3 (2025-03-04)
+
+### 新特性
+
+* 新增了桶名前缀配置功能（通过可选参数`bucket-prefix`实现，默认值为空）。当多个SDK客户端需要连接到同一个Minio后端服务时，可通过设置不同的前缀进行隔离区分。所配置的前缀需遵循Amazon S3存储桶的命名规范。具体规则参见： https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html
+
 ## v1.0.2 (2024-12-04)
 
 ### BUG修正

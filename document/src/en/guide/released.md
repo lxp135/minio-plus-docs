@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.0.3 (2025-03-04)
+
+### New Features
+
+* The bucket name prefix configuration feature has been added (implemented through the optional parameter bucket-prefix, with a default value of empty). When multiple SDK clients need to connect to the same Minio backend service, they can use different prefixes for isolation and differentiation. The configured prefix must comply with the Amazon S3 bucket naming rules. For specific guidelines, please refer to: https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html
+
 ## v1.0.2 (2024-12-04)
 
 ### Bug Fixes

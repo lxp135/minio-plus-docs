@@ -10,6 +10,11 @@ In the `application.yml` configuration file of the project engineering, the foll
 
 ## Optional parameters:
 
+* `bucket-prefix`: Bucket name prefix, an optional parameter with a default value of empty. If multiple SDKs connect to the same Minio backend service, different prefixes can be configured for distinction.
+
+> [!TIP]  
+> Must comply with the naming rules for Amazon S3 storage paths. For specific guidelines, refer to https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html.
+
 * `minioplus.browser-url`: Nginx proxy address
 
 > [!TIP]

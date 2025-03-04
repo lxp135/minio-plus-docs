@@ -10,6 +10,9 @@
 
 ## 可选参数：
 
+* `bucket-prefix`：桶名前缀，可选参数，默认为空。如果多个SDK连接同一个minio后端服务，可以配置不同的前缀来区分。
+> [!TIP]
+> 需符合 Amazon S3 存储路径的命名规则，具体规则参考 https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html
 * `minioplus.browser-url`：Nginx 代理地址
 
 > [!TIP]
