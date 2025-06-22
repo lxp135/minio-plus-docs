@@ -108,16 +108,16 @@ public class MetadataRepositoryImpl extends ServiceImpl<FileMetadataInfoMapper, 
 
     @Override
     public FileMetadataInfoVo one(FileMetadataInfoDTO searchDTO) {
-
-        // 组装查询参数
+        
         QueryWrapper<FileMetadataInfoEntity> queryWrapper = buildParams(searchDTO);
         queryWrapper.last("limit 1");
 
         FileMetadataInfoEntity fileMetadataInfoEntity = super.getOne(queryWrapper);
 
-        FileMetadataInfoVo fileMetadataInfoVo = new FileMetadataInfoVo();
+        FileMetadataInfoVo fileMetadataInfoVo = null;
 
         if(null!=fileMetadataInfoEntity){
+            fileMetadataInfoVo = new FileMetadataInfoVo();
             BeanUtils.copyProperties(fileMetadataInfoEntity, fileMetadataInfoVo);
         }
 
