@@ -115,9 +115,10 @@ public class MetadataRepositoryImpl extends ServiceImpl<FileMetadataInfoMapper, 
 
         FileMetadataInfoEntity fileMetadataInfoEntity = super.getOne(queryWrapper);
 
-        FileMetadataInfoVo fileMetadataInfoVo = new FileMetadataInfoVo();
+        FileMetadataInfoVo fileMetadataInfoVo = null;
 
         if(null!=fileMetadataInfoEntity){
+            fileMetadataInfoVo = new FileMetadataInfoVo();
             BeanUtils.copyProperties(fileMetadataInfoEntity, fileMetadataInfoVo);
         }
 
