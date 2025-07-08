@@ -14,7 +14,6 @@
 欢迎提交**ISSUE**，请写清楚问题的具体原因，重现步骤和环境。
 
 * Gitee Issue 地址 [https://gitee.com/lxp135/minio-plus/issues](https://gitee.com/lxp135/minio-plus/issues)
-* GitHub Issue 地址 [https://github.com/lxp135/minio-plus/issues](https://github.com/lxp135/minio-plus/issues)
 
 ## 加入我们
 
