@@ -330,3 +330,73 @@ public class WebMvcConfig implements WebMvcConfigurer {
 > [!TIP]
 > > 可以查看示例项目仓库 [minio-plus-demo](https://gitee.com/lxp135/minio-plus-demo) ，其中的`minio-plus-application-schedule`工程。
 > 这是一个写好的，使用了`minio-plus-core-springboot2-starter`和MySQL的例子。
+
+## 使用
+### StorageService 接口
+
+StorageService 是 MinIO-Plus 提供的核心服务接口，封装了文件存储的主要操作：
+
+```java
+public interface StorageService {
+    // 文件分片
+    FilePreShardingVo sharding(long fileSize);
+    
+    // 上传初始化
+    FileCheckResultVo init(String fileMd5, String fullFileName, long fileSize, Boolean isPrivate, String userId);
+    
+    // 完成上传
+    CompleteResultVo complete(String fileKey, List<String> partMd5List, String userId);
+    
+    // 文件下载
+    String download(String fileKey, String userId);
+    
+    // 图片处理
+    String image(String fileKey, String userId);
+    String preview(String fileKey, String userId);
+    
+    // 文件管理
+    FileMetadataInfoVo one(String key);
+    List<FileMetadataInfoVo> list(FileMetadataInfoDTO fileMetadataInfo);
+    
+    // 文件创建
+    FileMetadataInfoVo createFile(String fullFileName, Boolean isPrivate, String userId, byte[] fileBytes);
+    FileMetadataInfoVo createFile(String fullFileName, Boolean isPrivate, String userId, InputStream inputStream);
+    FileMetadataInfoVo createFile(String fullFileName, Boolean isPrivate, String userId, String url);
+    
+    // 大文件处理
+    FileMetadataInfoVo createBigFile(String fullFileName, String md5, long fileSize, Boolean isPrivate, String userId, InputStream inputStream);
+    
+    // 文件读取和删除
+    Pair<FileMetadataInfoVo,byte[]> read(String fileKey);
+    Boolean remove(String fileKey);
+}
+```
+
+## 最佳实践
+
+### 大文件上传
+
+对于大文件上传，建议前端使用分片上传流程：
+
+1. 使用 init 方法初始化上传任务
+2. 上传各个分片
+3. 调用 complete 方法完成上传
+
+### 文件下载和预览
+
+- 普通文件下载：使用 download 方法获取下载链接
+- 图片文件预览：使用 image 方法获取原图，preview 方法获取缩略图
+
+### 文件管理
+
+- 使用 one 和 list 方法进行文件元数据查询
+- 使用 createFile 方法进行文件上传
+- 使用 read 方法读取文件内容
+- 使用 remove 方法删除文件
+
+## 注意事项
+
+- 建议大文件使用分片上传方式
+- 文件上传建议使用客户端直传方式，减轻服务器压力
+- 注意正确配置文件访问权限（isPrivate参数）
+- 合理设置上传和下载链接的过期时间
